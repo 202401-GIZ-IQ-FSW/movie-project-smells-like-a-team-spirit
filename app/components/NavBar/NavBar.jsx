@@ -23,6 +23,7 @@ import Link from "next/link";
                     <NavigationMenuItem>
                         <Link href="/">Home</Link>
                     </NavigationMenuItem>
+                    
                 </NavigationMenuList>
             </NavigationMenu>
         </div>
