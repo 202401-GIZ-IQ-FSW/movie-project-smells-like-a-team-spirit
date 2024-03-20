@@ -2,7 +2,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/NavBar/NavBar";
 import { ThemeProvider } from "./components/theme-provider";
-import GenreCard from "./components/NavBar/GenreCard";
+import NavCard from "./components/NavBar/NavCard";
+import NavDropdown from "./components/NavBar/NavDropdown";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +23,6 @@ export default function RootLayout({ children }) {
           disableTransitionOnChange
         >
           <NavBar />
-          <GenreCard name="aivnoriwn" />
           {children}
         </ThemeProvider>
       </body>

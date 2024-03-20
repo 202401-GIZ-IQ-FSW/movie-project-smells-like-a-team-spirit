@@ -1,9 +1,10 @@
 'use client'
 
 import React from 'react';
-import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent } from "@/components/ui/navigation-menu";
+import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger,NavigationMenuLink,navigationMenuTriggerStyle, NavigationMenuContent } from "@/components/ui/navigation-menu";
 import Link from "next/link";
 import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
+import NavDropdown from './NavDropdown';
 
 export default function NavBar() {
 
@@ -19,8 +20,8 @@ export default function NavBar() {
                         </NavigationMenuItem>
                     </NavigationMenuList>
                     </div>
-                    <h1 className="text-4xl pb-1 font-bold select-none" >\</h1>
-                    <div className="p-3 justify-center flex flex-row">
+                    <h1 className="text-4xl pb-1 pl-5 font-bold select-none" >\</h1>
+                    <div className=" justify-center pl-5 flex flex-row">
                     <NavigationMenu>
                         <NavigationMenuList>
                             <NavigationMenuItem>
@@ -28,34 +29,22 @@ export default function NavBar() {
                                     Movies
                                 </NavigationMenuTrigger>
                                 <NavigationMenuContent>
-                                    
+                                    <NavDropdown endPoint={'genre/movie/list'}/>
                                 </NavigationMenuContent>
                             </NavigationMenuItem>
                         </NavigationMenuList>
                     </NavigationMenu>
                     </div>
-                    <div className="p-3">
+                    <div className="p-3 justify-center flex flex-row">
                     <NavigationMenu>
                         <NavigationMenuList>
                             <NavigationMenuItem>
                                 <NavigationMenuTrigger>
-                                    <NavigationMenuItem>
-                                        <Link href="/shows">TV Shows</Link>
-                                    </NavigationMenuItem>
+                                    TV Shows
                                 </NavigationMenuTrigger>
-                            </NavigationMenuItem>
-                        </NavigationMenuList>
-                    </NavigationMenu>
-                    </div>
-                    <div className="p-3">
-                    <NavigationMenu>
-                        <NavigationMenuList>
-                            <NavigationMenuItem>
-                                <NavigationMenuTrigger>
-                                    <NavigationMenuItem>
-                                        <Link href="/top-actors">Top Actors</Link>
-                                    </NavigationMenuItem>
-                                </NavigationMenuTrigger>
+                                <NavigationMenuContent>
+                                    <NavDropdown endPoint={'genre/tv/list'}/>
+                                </NavigationMenuContent>
                             </NavigationMenuItem>
                         </NavigationMenuList>
                     </NavigationMenu>
@@ -64,12 +53,12 @@ export default function NavBar() {
                     <div className="p-3">
                     <NavigationMenu>
                         <NavigationMenuList>
-                            <NavigationMenuItem>
-                                <NavigationMenuTrigger>
-                                    <NavigationMenuItem>
-                                        <Link href="/top-shows">Top Charts</Link>
-                                    </NavigationMenuItem>
-                                </NavigationMenuTrigger>
+                        <NavigationMenuItem>
+                            <Link href="/trending-now" legacyBehavior passHref>
+                                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                Trending Now
+                                </NavigationMenuLink>
+                            </Link>
                             </NavigationMenuItem>
                         </NavigationMenuList>
                     </NavigationMenu>
