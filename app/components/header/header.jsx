@@ -1,6 +1,4 @@
 import React from "react"
-import DarkModeSwitch from "./DarkModeSwitch"
-import { FaSearch } from "react-icons/fa"
 import { PiPopcornFill } from "react-icons/pi"
 
 export default function Header() {
