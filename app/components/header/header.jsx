@@ -12,21 +12,21 @@ export default function Header() {
           Late Night Cinema
         </span>
       </div>
-
+{/* 
       <div className="flex items-center sm:flex-grow ">
-        <FaSearch className="sm:hidden cursor-pointer hover:text-amber-500" />
-        <input
+         <FaSearch className="sm:hidden cursor-pointer hover:text-amber-500" />
+         <input
           type="text"
           placeholder="Search Keywords"
           className="w-full h-10 px-4 rounded-lg  focus:outline-none hidden sm:block focus:bg-white mx-auto"
-        />
-      </div>
+        /> 
+      </div> */}
 
-      <div className="flex gap-5">
+      {/* <div className="flex gap-5">
         <div>
           <DarkModeSwitch />
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }
