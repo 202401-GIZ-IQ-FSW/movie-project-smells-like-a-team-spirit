@@ -1,6 +1,9 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/NavBar/NavBar";
+import { ThemeProvider } from "./components/theme-provider";
+import NavCard from "./components/NavBar/NavCard";
+import NavDropdown from "./components/NavBar/NavDropdown";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,8 +16,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <NavBar />
-        {children}</body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <NavBar />
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
