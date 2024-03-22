@@ -2,9 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/NavBar/NavBar";
 import { ThemeProvider } from "./components/theme-provider";
-import NavCard from "./components/NavBar/NavCard";
-import NavDropdown from "./components/NavBar/NavDropdown";
-import MovieCard from "./components/MovieCard/MovieCard";
+import MovieCards from "./components/MovieCard/MovieCards";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,17 +15,17 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* theme context for the dark mode */}
+        {/* dark mode context */}
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-
-
-          
+          <div className="pb-12"></div>
           <NavBar />
+          {/* <div className="pb-12"></div> */}
+          <MovieCards endpoint="trending/all/day" />
           {children}
         </ThemeProvider>
       </body>

@@ -5,12 +5,18 @@ const nextConfig = {
   },
   images: {
     remotePatterns: [
-        {
-          protocol: 'https',
-          hostname: 'placehold.co',
-          port: '',
-        },
-      ],  },
+      {
+        protocol: "https",
+        hostname: "loremflickr.com",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "image.tmdb.org",
+        port: "",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
