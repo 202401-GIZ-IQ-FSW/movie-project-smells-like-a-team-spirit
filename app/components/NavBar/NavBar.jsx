@@ -8,7 +8,7 @@ import NavDropdown from './NavDropdown';
 
 export default function NavBar() {
     return (
-        <nav className="fixed top-0 w-full bg-gradient-to-b from-secondary to-transparent p-4 flex justify-between items-center sm:hidden md:inline-flex ">
+        <nav className="fixed top-0 w-full bg-gradient-to-b from-secondary to-transparent p-4 flex justify-between items-center md:hidden sm:hidden">
             <div className="flex items-center">
                 <NavigationMenu>
                     <NavigationMenuList>

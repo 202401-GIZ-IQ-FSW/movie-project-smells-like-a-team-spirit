@@ -25,7 +25,9 @@ export default function RootLayout({ children }) {
           <div className="pb-12"></div>
           <NavBar />
           {/* <div className="pb-12"></div> */}
+          <div className="pb-12">
           <MovieCards endpoint="trending/all/day" />
+          </div>
           {children}
         </ThemeProvider>
       </body>

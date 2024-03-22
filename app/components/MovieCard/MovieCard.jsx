@@ -14,15 +14,17 @@ import {
   
 export default function MovieCard({image_url, title, description, rating, votes ,type}) {
     return (
-                <div className='sm:w-72   p-4 h-full'>
-            <Card >
-                <CardHeader>
+                <div className='w-72 place-items-center p-4 h-full'>
+            <Card className='xs:w-[50rem] md:w-auto' >
+                <div className='xs:grid xs:grid-cols-2 md:inline xs:place-items-center xs:pr-20'>
                 <div className='h-80'>
+                <CardHeader>
                 <Image src={image_url} alt={title} width={400} height={600} className="w-80"/>
-                </div>
                 </CardHeader>
+                </div>
+                <div className='mt-6'>
                 <CardContent>
-                    <div className='flex flex-row justify-between'>
+                    <div className='flex flex-row justify-between '>
                     <CardTitle><Link href={''} className='underline underline-offset-8 leading-relaxed' >{(title.length<15)?title:`${title.slice(0,16)}...`}</Link></CardTitle>
                     <Badge variant="secondary" className="h-6">{type}</Badge>
                     </div>
@@ -37,6 +39,8 @@ export default function MovieCard({image_url, title, description, rating, votes 
                     <span className="ml-2">VOTES: {votes}</span>
                 </CardDescription>
                 </CardFooter>
+                </div>
+                </div>
             </Card>
         </div>
 
