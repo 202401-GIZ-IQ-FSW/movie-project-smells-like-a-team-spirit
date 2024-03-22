@@ -1,3 +1,6 @@
+//  function to fetch data from the API and return it as a JSON object.
+//  and the snippet from next.config.mjs to set the API_KEY as an environment variable.
+
 const axios = require("axios");
 export async function fetchDataToEndpoint(endpoint) {
     const baseUrl = "https://api.themoviedb.org/3";
@@ -6,7 +9,6 @@ export async function fetchDataToEndpoint(endpoint) {
   
     try {
       const response = await axios.get(url);
-      console.log("Data fetched successfully:", response.data);
       return response.data;
     } catch (error) {
       console.error("Error fetching data:", error);

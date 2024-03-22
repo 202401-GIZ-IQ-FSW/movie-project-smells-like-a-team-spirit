@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar/NavBar";
 import { ThemeProvider } from "./components/theme-provider";
 import NavCard from "./components/NavBar/NavCard";
 import NavDropdown from "./components/NavBar/NavDropdown";
+import MovieCard from "./components/MovieCard/MovieCard";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,12 +17,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
+        {/* theme context for the dark mode */}
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
+
+
+          
           <NavBar />
           {children}
         </ThemeProvider>

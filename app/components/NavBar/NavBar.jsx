@@ -35,7 +35,7 @@ export default function NavBar() {
                         </NavigationMenuList>
                     </NavigationMenu>
                     </div>
-                    <div className="p-3 justify-center flex flex-row">
+                    <div className="pl-3 justify-center flex flex-row">
                     <NavigationMenu>
                         <NavigationMenuList>
                             <NavigationMenuItem>
@@ -50,7 +50,7 @@ export default function NavBar() {
                     </NavigationMenu>
                     </div>
 
-                    <div className="p-3">
+                    <div className="pl-2 h-14 pt-3">
                     <NavigationMenu>
                         <NavigationMenuList>
                         <NavigationMenuItem>
