@@ -1,5 +1,5 @@
 import Image from "next/image";
-import MovieCards from "./components/MovieCard/MovieCards";
+import MovieCards from "../components/MovieCard/MovieCards";
 
 export default function Home() {
   return (

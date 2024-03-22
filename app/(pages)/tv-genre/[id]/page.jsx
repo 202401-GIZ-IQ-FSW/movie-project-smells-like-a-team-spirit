@@ -1,5 +1,5 @@
 import React from "react";
-import MovieCards from "../../components/MovieCard/MovieCards";
+import MovieCards from "../../../components/MovieCard/MovieCards";
 
 export default function GenreDetails({ params }) {
   return (
