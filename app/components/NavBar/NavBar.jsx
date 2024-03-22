@@ -28,7 +28,7 @@ export default function NavBar() {
                                     Movies
                                 </NavigationMenuTrigger>
                                 <NavigationMenuContent>
-                                    <NavDropdown endPoint={'genre/movie/list'}/>
+                                    <NavDropdown endPoint={'genre/movie/list'} type={'movie'}/>
                                 </NavigationMenuContent>
                             </NavigationMenuItem>
                         </NavigationMenuList>
@@ -40,7 +40,7 @@ export default function NavBar() {
                                     TV Shows
                                 </NavigationMenuTrigger>
                                 <NavigationMenuContent>
-                                    <NavDropdown endPoint={'genre/tv/list'}/>
+                                    <NavDropdown endPoint={'genre/tv/list'} type={'tv'}/>
                                 </NavigationMenuContent>
                             </NavigationMenuItem>
                         </NavigationMenuList>
@@ -48,9 +48,20 @@ export default function NavBar() {
                     <NavigationMenu>
                         <NavigationMenuList>
                             <NavigationMenuItem>
-                                <Link href="/trending-now" legacyBehavior passHref>
+                                <Link href="/top-charts" legacyBehavior passHref>
                                     <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                        Trending Now
+                                        Top Charts
+                                    </NavigationMenuLink>
+                                </Link>
+                            </NavigationMenuItem>
+                        </NavigationMenuList>
+                    </NavigationMenu>
+                    <NavigationMenu>
+                        <NavigationMenuList>
+                            <NavigationMenuItem>
+                                <Link href="/popular" legacyBehavior passHref>
+                                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                        Popular
                                     </NavigationMenuLink>
                                 </Link>
                             </NavigationMenuItem>
