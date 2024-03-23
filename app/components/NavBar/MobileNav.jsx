@@ -10,12 +10,12 @@ export default function MobileNav() {
   return (
     <div className="lg:hidden xl:hidden 2xl:hidden backdrop-blur-3xl fixed top-0 w-full bg-gradient-to-b from-primary-foreground to-transparent p-4 flex justify-between items-center">
       <Drawer className shouldScaleBackground>
-        <DrawerTrigger asChild className="text-3xl w-32 rounded-sm ">
-          <Button variant="outline" size="lg">
+        <DrawerTrigger asChild className="text-xl w-24 h-9 rounded-sm ">
+          <Button variant="outline" size="icon">
             MENU
           </Button>
         </DrawerTrigger>
-        <DarkModeToggle className="" sizeparm={"lg"} />
+        <DarkModeToggle className="" sizeparm={"icon"} />
         <DrawerContent>
           <MobileNavContent />
         </DrawerContent>
