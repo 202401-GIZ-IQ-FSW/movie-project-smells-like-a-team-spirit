@@ -2,7 +2,7 @@ import { Inter } from "next/font/google";
 import "../globals.css";
 import NavBar from "../components/NavBar/NavBar";
 import { ThemeProvider } from "../components/theme-provider";
-import MovieCards from "../components/MovieCard/MovieCards";
+import MobileNav from "../components/NavBar/MobileNav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +24,7 @@ export default function RootLayout({ children }) {
         >
           <div className="pb-12"></div>
           <NavBar />
+          <MobileNav />
           {children}
         </ThemeProvider>
       </body>

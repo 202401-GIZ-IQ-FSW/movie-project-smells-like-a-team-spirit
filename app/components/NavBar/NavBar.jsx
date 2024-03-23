@@ -87,7 +87,7 @@ export default function NavBar() {
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
-        <DarkModeToggle />
+        <DarkModeToggle sizeparm={"icon"} />
       </div>
     </nav>
   );

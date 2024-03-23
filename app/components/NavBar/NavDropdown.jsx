@@ -21,7 +21,7 @@ export default function NavDropdown({ endPoint, type }) {
     <div className="flex flex-col flex-wrap h-56 w-96 justify-center items-center rounded-sm">
       {data.map((genre) => {
         return (
-          <NavCard key={genre.id} name={genre.name} id={genre.id} type={type} />
+          <NavCard key={genre.id} name={genre.name} id={genre.id} type={type} outline={'outline'} />
         );
       })}
     </div>
