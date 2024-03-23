@@ -27,7 +27,7 @@ function Footer() {
 
                 <a
                   className="gap-2 flex justify-end items-center"
-                  href="https://github.com/DRACOWRLD999"
+                  href="https://www.linkedin.com/in/ahmed-sabah-s"
                 >
                   <Linkedin color="white" size={24} />
                 </a>
