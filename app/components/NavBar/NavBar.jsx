@@ -1,17 +1,16 @@
 'use client'
 
 import React from 'react';
-import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger,NavigationMenuLink,navigationMenuTriggerStyle, NavigationMenuContent } from "@/components/ui/navigation-menu";
+import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuLink, navigationMenuTriggerStyle, NavigationMenuContent } from "@/components/ui/navigation-menu";
 import Link from "next/link";
 import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
 import NavDropdown from './NavDropdown';
 
 export default function NavBar() {
-
     return (
-        <div className="flex flex-row justify-between items-center p-3 ">
-            <NavigationMenu>
-                    <div>
+        <nav className="fixed top-0 w-full bg-gradient-to-b from-secondary to-transparent p-4 flex justify-between items-center sm:hidden md:inline-flex ">
+            <div className="flex items-center">
+                <NavigationMenu>
                     <NavigationMenuList>
                         <NavigationMenuItem>
                             <div className="px-5">
@@ -19,9 +18,9 @@ export default function NavBar() {
                             </div>
                         </NavigationMenuItem>
                     </NavigationMenuList>
-                    </div>
-                    <h1 className="text-4xl pb-1 pl-5 font-bold select-none" >\</h1>
-                    <div className=" justify-center pl-5 flex flex-row">
+                </NavigationMenu>
+                <h1 className="text-4xl pb-1 pl-5 font-bold select-none" >\</h1>
+                <div className="flex items-center space-x-4 pl-5 md:pl-0">
                     <NavigationMenu>
                         <NavigationMenuList>
                             <NavigationMenuItem>
@@ -34,8 +33,6 @@ export default function NavBar() {
                             </NavigationMenuItem>
                         </NavigationMenuList>
                     </NavigationMenu>
-                    </div>
-                    <div className="p-3 justify-center flex flex-row">
                     <NavigationMenu>
                         <NavigationMenuList>
                             <NavigationMenuItem>
@@ -48,37 +45,31 @@ export default function NavBar() {
                             </NavigationMenuItem>
                         </NavigationMenuList>
                     </NavigationMenu>
-                    </div>
-
-                    <div className="p-3">
                     <NavigationMenu>
                         <NavigationMenuList>
-                        <NavigationMenuItem>
-                            <Link href="/trending-now" legacyBehavior passHref>
-                                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                Trending Now
-                                </NavigationMenuLink>
-                            </Link>
+                            <NavigationMenuItem>
+                                <Link href="/trending-now" legacyBehavior passHref>
+                                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                        Trending Now
+                                    </NavigationMenuLink>
+                                </Link>
                             </NavigationMenuItem>
                         </NavigationMenuList>
                     </NavigationMenu>
-                    </div>
-            </NavigationMenu>
-            <NavigationMenu>
-            <div className="flex flex-row items-center justify-end">
-                <NavigationMenuList >
-                    <NavigationMenuItem >
-                        <div className="px-5">
-                            <Link href="/sign"><b>Sign in</b></Link>
-                        </div>
-                    </NavigationMenuItem>
-                </NavigationMenuList>
-
-                <div className="px-3">
-                    <DarkModeToggle />
                 </div>
             </div>
-            </NavigationMenu>
-        </div>
+            <div className="flex items-center space-x-4">
+                <NavigationMenu>
+                    <NavigationMenuList>
+                        <NavigationMenuItem>
+                            <div className="px-5">
+                                <Link href="/sign"><b>Sign in</b></Link>
+                            </div>
+                        </NavigationMenuItem>
+                    </NavigationMenuList>
+                </NavigationMenu>
+                <DarkModeToggle />
+            </div>
+        </nav>
     )
 }
