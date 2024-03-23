@@ -22,30 +22,12 @@ module.exports = {
         144: "36rem",
       },
       screens: {
-        sm: { min: "0px", max: "499px" },
-        // 
-        md: { min: "500px", max: "799px" },
-        // => @media (min-width: 640px and max-width: 767px) { ... }
-
-        lg: { min: "800px", max: "1299px" },
-        // => @media (min-width: 768px and max-width: 1023px) { ... }
-
-        xl: { min: "1300px", max: "1849px" },
-        // => @media (min-width: 1024px and max-width: 1279px) { ... }
-
-        "2xl": { min: "1850px" },
-        // => @media (min-width: 1280px and max-width: 1535px) { ... }
-
-        // => @media (min-width: 1536px) { ... }
+        sm: "100px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
+        "2xl": "1536px",
       },
-      // screens: {
-      //   xs: "100px",
-      //   sm: "350px",
-      //   md: "800px",
-      //   lg: "1400px",
-      //   xl: "1800px",
-      //   "2xl": "1536px",
-      // },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
