@@ -9,15 +9,14 @@ function Footer() {
             className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse"
           >
             <span className="self-center text-2xl font-semibold whitespace-nowrap ">
-              LateNight Cinema
+              LateNight Cinema.
             </span>
           </a>
 
           {/* <div className="gap-8 flex flex-wrap items-center justify-center mb-6 text-sm font-medium text-foreground sm:mb-0 "> */}
           <div className="grid grid-cols-3 gap-x-4 gap-y-2">
-            <div className="flex items-center gap-3 justify-between ">
-              Ahmad Sabah
-              <div className="flex flex-col gap-1">
+            <div className="flex flex-col items-center gap-3 justify-between ">
+              <div className="flex flex-row gap-1">
                 <a
                   className="gap-2 flex justify-between items-center"
                   href="https://github.com/DRACOWRLD999"
@@ -32,11 +31,11 @@ function Footer() {
                   <Linkedin color="white" size={24} />
                 </a>
               </div>
+              Ahmad Sabah
             </div>
 
-            <div className="flex items-center gap-3 justify-between ">
-              Meer Atta
-              <div className="flex flex-col gap-1">
+            <div className="flex flex-col items-center gap-3 justify-between ">
+              <div className="flex flex-row gap-1">
                 <a
                   className="gap-2 flex justify-between items-center"
                   href="https://github.com/Meerata"
@@ -51,25 +50,26 @@ function Footer() {
                   <Linkedin color="white" size={24} />
                 </a>
               </div>
+              Meer Atta
             </div>
 
-            <div className="flex items-center gap-3 justify-between ">
-              Aland Rebwar
-              <div className="flex flex-col gap-1">
+            <div className="flex flex-col items-center gap-3 justify-between ">
+              <div className="flex flex-row gap-1">
                 <a
                   className="gap-2 flex justify-between items-center"
                   href="https://github.com/Aland-Axelles"
-                >
+                  >
                   <Github color="white" size={24} />
                 </a>
 
                 <a
                   className="gap-2 flex justify-end items-center"
                   href="https://www.linkedin.com/in/aland-r-0182921b3/"
-                >
+                  >
                   <Linkedin color="white" size={24} />
                 </a>
               </div>
+                  Aland Rebwar
             </div>
           </div>
         </div>
