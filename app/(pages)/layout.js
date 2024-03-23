@@ -3,7 +3,6 @@ import "../globals.css";
 import NavBar from "../components/NavBar/NavBar";
 import { ThemeProvider } from "../components/theme-provider";
 import MobileNav from "../components/NavBar/MobileNav";
-import { SkeletonCard } from "../components/CardSkeleton/SkeletonCard";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,8 +25,7 @@ export default function RootLayout({ children }) {
           <div className="pb-12"></div>
           <NavBar />
           <MobileNav />
-          {/* {children} */}
-          <SkeletonCard />
+          {children}
         </ThemeProvider>
       </body>
     </html>
