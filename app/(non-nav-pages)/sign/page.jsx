@@ -17,7 +17,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 export default function Sign() {
   return (
     <main className="flex flex-row justify-center items-center ">
-      <Tabs defaultValue="account" className="w-[400px]">
+      <Tabs defaultValue="sign-in" className="w-[400px]">
         <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="sign-in">Sign-in</TabsTrigger>
           <TabsTrigger value="sign-up">Sign-up</TabsTrigger>
@@ -44,9 +44,9 @@ export default function Sign() {
             </CardContent>
             <CardFooter className="items-center justify-between">
               <div className="flex items-center space-x-2 pl-2">
-                <Checkbox id="terms" className="rounded-[5px]" />
+                <Checkbox id="remember" className="rounded-[5px]" />
                 <Label
-                  htmlFor="terms"
+                  htmlFor="remember"
                   className="text-sm font-extralight leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 "
                 >
                   Remember me
