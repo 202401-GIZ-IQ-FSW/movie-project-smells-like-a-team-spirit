@@ -22,8 +22,9 @@ module.exports = {
         144: "36rem",
       },
       screens: {
-        sm: { min: "0px", max: "549px" },
-        md: { min: "550px", max: "799px" },
+        sm: { min: "0px", max: "499px" },
+        // 
+        md: { min: "500px", max: "799px" },
         // => @media (min-width: 640px and max-width: 767px) { ... }
 
         lg: { min: "800px", max: "1299px" },

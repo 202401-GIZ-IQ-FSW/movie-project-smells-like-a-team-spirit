@@ -27,7 +27,7 @@ export default function MovieCards({ endpoint, paramExist }) {
     xl:grid xl:grid-cols-5 xl:gap-4 xl:place-items-center xl:px-4 xl:py-4
     2xl:grid 2xl:grid-cols-7 2xl:gap-4 2xl:place-items-center 2xl:px-4 2xl:py-4
     
-    sm:p-4 sm:flex sm:flex-col sm:justify-center sm:items-center "
+    sm:p-4 sm:grid sm:grid-cols-1 sm: sm: sm: "
       >
         {data.results &&
           data.results.map((movie) => (

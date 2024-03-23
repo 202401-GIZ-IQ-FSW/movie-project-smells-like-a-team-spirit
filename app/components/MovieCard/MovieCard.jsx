@@ -21,8 +21,8 @@ export default function MovieCard({
 }) {
   return (
     <div className="w-72 place-items-center p-4 h-full">
-      <Card className="sm:w-[50rem] md:w-auto">
-        <div className="sm:grid sm:grid-cols-2 md:inline sm:place-items-center sm:pr-20">
+      <Card className="sm:w-[23rem] ">
+        <div className=" flex flex-col items-center justify-center">
           <div className="h-30">
             <CardHeader>
               <Image
