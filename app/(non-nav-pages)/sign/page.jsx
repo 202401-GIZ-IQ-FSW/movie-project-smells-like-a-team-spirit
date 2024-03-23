@@ -12,58 +12,93 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Checkbox } from "@/components/ui/checkbox";
 
 export default function Sign() {
   return (
-    <main className="flex flex-row justify-center items-center">
+    <main className="flex flex-row justify-center items-center ">
       <Tabs defaultValue="account" className="w-[400px]">
         <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger value="account">Account</TabsTrigger>
-          <TabsTrigger value="password">Password</TabsTrigger>
+          <TabsTrigger value="sign-in">Sign-in</TabsTrigger>
+          <TabsTrigger value="sign-up">Sign-up</TabsTrigger>
         </TabsList>
-        <TabsContent value="account">
+        <TabsContent value="sign-in">
+          <Card className="">
+            <CardHeader className="text-center">
+              <CardTitle>Sign-in</CardTitle>
+              <CardDescription>Sign in to your account</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              <div className="space-y-1">
+                <Label htmlFor="username">Username</Label>
+                <Input id="username" placeholder="@username" />
+              </div>
+              <div className="space-y-1">
+                <Label htmlFor="password">Password</Label>
+                <Input
+                  id="password"
+                  type="password"
+                  placeholder="Enter Your Password"
+                />
+              </div>
+            </CardContent>
+            <CardFooter className="items-center justify-between">
+              <div className="flex items-center space-x-2 pl-2">
+                <Checkbox id="terms" className="rounded-[5px]" />
+                <Label
+                  htmlFor="terms"
+                  className="text-sm font-extralight leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 "
+                >
+                  Remember me
+                </Label>
+              </div>
+              <Button>SUBMIT</Button>
+            </CardFooter>
+          </Card>
+        </TabsContent>
+        <TabsContent value="sign-up">
           <Card>
-            <CardHeader>
-              <CardTitle>Account</CardTitle>
-              <CardDescription>
-                Make changes to your account here. Click save when you're done.
-              </CardDescription>
+            <CardHeader className="text-center">
+              <CardTitle>Sign-up</CardTitle>
+              <CardDescription>Create a new account</CardDescription>
             </CardHeader>
             <CardContent className="space-y-2">
               <div className="space-y-1">
                 <Label htmlFor="name">Name</Label>
-                <Input id="name" defaultValue="Pedro Duarte" />
+                <Input id="name" placeholder="Enter Your Name" />
               </div>
               <div className="space-y-1">
-                <Label htmlFor="username">Username</Label>
-                <Input id="username" defaultValue="@peduarte" />
+                <Label htmlFor="email">Email</Label>
+                <Input id="email" placeholder="email@domain.com" />
+              </div>
+              <div className="space-y-1">
+                <Label htmlFor="current">Password</Label>
+                <Input
+                  id="current"
+                  type="password"
+                  placeholder="Enter Your Password"
+                />
+              </div>
+              <div className="space-y-1">
+                <Label htmlFor="new">Confirm Password</Label>
+                <Input
+                  id="new"
+                  type="password"
+                  placeholder="Enter The Same Password"
+                />
               </div>
             </CardContent>
-            <CardFooter>
-              <Button>Save changes</Button>
-            </CardFooter>
-          </Card>
-        </TabsContent>
-        <TabsContent value="password">
-          <Card>
-            <CardHeader>
-              <CardTitle>Password</CardTitle>
-              <CardDescription>
-                Change your password here. After saving, you'll be logged out.
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-2">
-              <div className="space-y-1">
-                <Label htmlFor="current">Current password</Label>
-                <Input id="current" type="password" />
+            <CardFooter className="items-center justify-between">
+              <div className="flex items-center space-x-2 pl-2">
+                <Checkbox id="terms" className="rounded-[5px]" />
+                <Label
+                  htmlFor="terms"
+                  className="text-sm font-extralight leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 "
+                >
+                  Agree to terms and conditions
+                </Label>
               </div>
-              <div className="space-y-1">
-                <Label htmlFor="new">New password</Label>
-                <Input id="new" type="password" />
-              </div>
-            </CardContent>
-            <CardFooter>
-              <Button>Save password</Button>
+              <Button>SIGN-UP</Button>
             </CardFooter>
           </Card>
         </TabsContent>
