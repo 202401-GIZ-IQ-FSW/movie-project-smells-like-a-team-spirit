@@ -4,6 +4,7 @@ import NavBar from "../components/NavBar/NavBar";
 import { ThemeProvider } from "../components/theme-provider";
 import MobileNav from "../components/NavBar/MobileNav";
 import Footer from "../components/Footer/Footer";
+import MovieDetails from "../components/SingleMoviePage/MovieDetails";
 
 const inter = Inter({ subsets: ["latin"] });
 
