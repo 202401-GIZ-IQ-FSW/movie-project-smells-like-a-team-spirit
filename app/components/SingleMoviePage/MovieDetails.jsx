@@ -1,80 +1,114 @@
 "use client";
-import React from "react";
-import mockMovieData from "./mockMovieData"; // Import mockMovieData
-import CreditSection from "./CreditSection";
-import RelatedMovies from "./RelatedMovies";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { Check, Languages, Star } from "lucide-react";
+import Badge from "@/components/ui/badge";
+import { PlayIcon, VideoIcon } from "@radix-ui/react-icons";
+import RelatedMovies from "./RelatedMovies";
+export default function MovieDetails({ id }) {
+  const [movieData, setMovieData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const axios = require("axios");
+  useEffect(() => {
+    async function fetchMovieData() {
+      const res = await axios.get(
+        `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}`
+      );
+      setMovieData(res.data);
+      console.log(res.data.original_language);
+      setLoading(false);
+    }
 
-const MovieDetails = () => {
-  const movieData = mockMovieData;
-
-  if (!movieData) {
-    return <div>Loading...</div>;
-  }
-
+    fetchMovieData();
+  }, [id]);
   return (
-    <div className="w-full">
-      <div className="p-4 md:pt-8 flex flex-col md:flex-row content-center max-w-6xl mx-auto md:space-x-6 mt-24">
-        <div className="md:w-1/2 flex items-center justify-center bg-gray-200">
-          <div className="w-600 h-900 bg-gray-200 flex items-center justify-center">
-            <p className="text-gray-600">Movie Poster</p>
-          </div>
+    <div>
+      <div class="backdrop-container opacity-95 rounded-lg blur-[2px]">
+        <div className="">
+          <Image
+            src={`https://image.tmdb.org/t/p/original/${movieData.backdrop_path}`}
+            layout="fill"
+            objectFit="cover"
+            alt="Movie Backdrop"
+            class="backdrop-image"
+            // objectPosition="center top"
+            className="rounded-b-3xl"
+          />
         </div>
-
-        <div className="p-2">
-          <h1 className="text-lg mb-3 font-bold ">{movieData.title}</h1>
-          <p className="mb-3 text-gray-500">
-            <span className="font-semibold"></span>
-            {movieData.releaseDate} | {movieData.language}
-          </p>
-          <p className="mb-3 text-gray-500">
-            <span className="font-semibold"></span>
-            {movieData.runtime}
-          </p>
-          <p className="mb-3 text-gray-500">
-            <span className="font-semibold"></span>
-            {movieData.director}
-          </p>
-
-          <div class="mt-4 mb-4">
-            <h3 class="sr-only">Reviews</h3>
-            <div class="flex items-center">
-              <div className="flex items-center">
-                <svg
-                  className="text-yellow-500 h-8 w-8 flex-shrink-0"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-                <p className="ml-2 text-xl font-semibold">6.7%</p>
-              </div>
-              <a
-                href="#"
-                class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"
+      </div>
+      <div className="absolute bottom-7 xl:left-24 md:ml-4 sm:ml-4 flex flex-row sm:flex-col md:flex-col ">
+        <Image
+          src={`https://image.tmdb.org/t/p/original/${movieData.poster_path}`}
+          width={200}
+          height={300}
+          alt="Movie Poster"
+          className="rounded-lg "
+        />
+        <div className="flex flex-col">
+          <div className="flex flex-row items-center ">
+            <h1 className="text-4xl underline decoration-yellow-400 sm:ml-2 font-bold md:pl-4 pt-10 text-primary drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+              {movieData.title}
+            </h1>
+          </div>
+          <div className="flex-row pl-4 pt-4">
+            <p className="text-sm text-primary pt-2 ">
+              Release Date : {movieData.release_date}
+            </p>
+            <p className="text-sm text-primary pt-2 ">
+              Runtime :
+              {parseInt(movieData.runtime / 60) +
+                ` Hr ` +
+                ((movieData.runtime % 60) + ` Min`)}
+            </p>
+            <div className="flex-row flex">
+              <Badge
+                variant="secondary"
+                className={"h-6 mt-2 ml-4 w-16 flex flex-row justify-around"}
               >
-                | 117 reviews
-              </a>
+                {movieData.original_language}
+                <Languages size={10} className="text-blue-400" />
+              </Badge>
+              <Badge
+                variant="secondary"
+                className={"h-6 mt-2 ml-4 w-16 flex flex-row justify-around"}
+              >
+                <div>{movieData.vote_count}</div>
+                <Check size={10} className="text-green-400" />
+              </Badge>
+              <Badge
+                variant="secondary"
+                className={"h-6 mt-2 ml-4  w-16 flex flex-row justify-around"}
+              >
+                {movieData.vote_average}
+                <Star size={10} className="text-yellow-400" />
+              </Badge>
             </div>
           </div>
-
-          <p className="text-base mb-3 text-gray-500">{movieData.overview}</p>
-          <div className="flex gap-4 mt-6">
-            <Button>Watch Now</Button>
-            <Button variant="secondary">Watch Trailer</Button>
+          <div className="flex-row">
+            <p className="2xl:w-[600px] xl:w-[600px] text-sm pl-4 pt-4 md:pt-4 sm:pt-4 md:pl-2 sm:pl-2 text-primary drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+              {movieData.overview}
+            </p>
+            <Button
+              className="bg-secondary text-primary rounded-lg mt-4 ml-4 hover:text-secondary h-9 w-40"
+              onClick={() => {}}
+            >
+              Watch Now
+              <PlayIcon className="w-5 h-5 ml-2" />
+            </Button>
+            <Button
+              className="bg-primary text-secondary rounded-lg mt-4 ml-4 hover:text-secondary hover:bg-red-600"
+              onClick={() => {}}
+            >
+              Watch Trailer
+              <VideoIcon className="w-6 h-6 ml-2" />
+            </Button>
           </div>
         </div>
       </div>
-
-      <CreditSection />
-      <RelatedMovies />
+      <div className="flex pt-96"></div>
+      {/* add components here */}
+      <RelatedMovies id={id} />
     </div>
   );
-};
-
-export default MovieDetails;
+}

@@ -23,7 +23,7 @@ const badgeVariants = cva(
   }
 )
 
-function Badge({
+export default function Badge({
   className,
   variant,
   ...props
@@ -31,4 +31,4 @@ function Badge({
   return (<div className={cn(badgeVariants({ variant }), className)} {...props} />);
 }
 
-export { Badge, badgeVariants }
+export { badgeVariants }

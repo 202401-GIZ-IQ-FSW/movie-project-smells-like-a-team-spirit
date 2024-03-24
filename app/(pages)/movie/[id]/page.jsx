@@ -1,10 +1,10 @@
 import MovieDetails from '@/app/components/SingleMoviePage/MovieDetails'
 import React from 'react'
 
-export default function page() {
+export default function page({params}) {
   return (
     <main>
-        <MovieDetails />
+        <MovieDetails id={params.id} />
     </main>
   )
 }

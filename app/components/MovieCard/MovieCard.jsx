@@ -18,6 +18,7 @@ export default function MovieCard({
   rating,
   votes,
   type,
+  id,
 }) {
   return (
     <div className="w-72 place-items-center p-4 h-full">
@@ -39,7 +40,7 @@ export default function MovieCard({
               <div className="flex flex-row justify-between ">
                 <CardTitle>
                   <Link
-                    href={""}
+                    href={`/movie/${id}`}
                     className="underline underline-offset-8 leading-relaxed"
                   >
                     {title.length <= 16 ? title : `${title.slice(0, 16)}...`}
