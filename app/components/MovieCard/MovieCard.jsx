@@ -29,8 +29,9 @@ export default function MovieCard({
               <Image
                 src={image_url}
                 alt={title}
-                width={400}
-                height={600}
+                width={320}
+                height={480}
+                objectFit="cover"
                 className="w-80"
               />
             </CardHeader>
