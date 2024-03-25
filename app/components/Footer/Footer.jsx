@@ -6,11 +6,11 @@ function SocialLink({ githubUrl, linkedinUrl, name }) {
     <div className="flex flex-col items-center gap-y-3 justify-center text-center ">
       <div className="flex flex-row gap-1">
         <a className="gap-2 flex items-center" href={githubUrl}>
-          <GitHubLogoIcon color="white" size={40} />
+          <GitHubLogoIcon className="text-primary" />
         </a>
         <div className="sm:w-4 md:w-4 lg:w-4 xl:w-4 2xl:w-4"></div>
         <a className="gap-2 flex items-center" href={linkedinUrl}>
-          <LinkedInLogoIcon color="white" size={40} />
+          <LinkedInLogoIcon className="text-primary text-xl" />
         </a>
       </div>
       {name}
