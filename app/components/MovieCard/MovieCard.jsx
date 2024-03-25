@@ -46,9 +46,9 @@ export default function MovieCard({
                     {title.length <= 16 ? title : `${title.slice(0, 16)}...`}
                   </Link>
                 </CardTitle>
-                <Badge variant="secondary" className="h-6">
+                {/* <Badge variant="secondary" className="h-6">
                   {type}
-                </Badge>
+                </Badge> */}
               </div>
             </CardContent>
             <CardFooter>
