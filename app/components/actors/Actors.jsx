@@ -1,34 +1,75 @@
-require('dotenv').config(); // Load environment variables from .env.local
-const fetch = require('node-fetch');
+"use client"
 
-async function fetchAllActorsData() {
-  const apiKey = process.env.API_KEY; 
-  const numberOfActors = 10; 
+import React, { useState, useEffect } from "react"
+import fetchData from "./fetchData"
+import Link from "next/link"
 
-  // Discover popular actors
-  const discoverUrl = `https://api.themoviedb.org/3/person/popular?api_key=${apiKey}&page=1`; 
-  const discoverResponse = await fetch(discoverUrl);
-  const discoverData = await discoverResponse.json();
+const API_KEY = process.env.API_KEY
 
-  const actorIds = discoverData.results.slice(0, numberOfActors).map(actor => actor.id);
-  const actorsData = [];
+export default function Actors() {
+  const [currentPage, setCurrentPage] = useState(1)
+  const [actorsDetails, setActorsDetails] = useState({ results: [] })
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState(null)
 
-  // Fetch and store details for each actor
-  for (const actorId of actorIds) {
-    const creditsUrl = `https://api.themoviedb.org/3/person/${actorId}/movie_credits?api_key=${apiKey}&language=en-US`;
-    const creditsResponse = await fetch(creditsUrl);
-    const creditsData = await creditsResponse.json();
+  useEffect(() => {
+    const fetchActors = async () => {
+      setIsLoading(true)
+      setError(null)
 
-    actorsData.push({
-      id: actorId,
-      // ... other actor details you want to include 
-      movie_credits: creditsData
-    });
-  }
+      try {
+        const data = await fetchData(
+          `https://api.themoviedb.org/3/person/popular?api_key=${API_KEY}&page=${currentPage}`
+        )
+        setActorsDetails(data)
+      } catch (error) {
+        setError(error.message)
+      } finally {
+        setIsLoading(false)
+      }
+    }
 
-  // Save to JSON file
-  const fs = require('fs');
-  fs.writeFileSync('actors_data.json', JSON.stringify(actorsData));
+    fetchActors()
+  }, [currentPage])
+
+  return (
+    <div className="container mx-auto px-4 py-16">
+      <h2 className="text-xl text-center mb-8">POPULAR ACTORS</h2>
+      {isLoading && <p>Loading...</p>}
+      {error && <p className="text-red-600">Error: {error}</p>}
+      {!isLoading && !error && (
+        <div className="grid grid-cols-4 gap-5 text-center p-5">
+          {actorsDetails.results.map((actor) => (
+            <div key={actor.id}>
+              <Link href={`/actors/${actor.id}`} key={actor.id} passHref>
+                <div>
+                  <h3 className="text-xl mb-1">{actor.name}</h3>
+                  <img
+                    className="rounded-md hover:"
+                    src={`https://image.tmdb.org/t/p/w300${actor.profile_path}`}
+                    alt={actor.name}
+                  />
+                </div>
+              </Link>
+            </div>
+          ))}
+        </div>
+      )}
+      <div className="flex justify-center gap-6 my-10">
+        <button
+          className=""
+          onClick={() => setCurrentPage(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          Previous Page
+        </button>
+        <button
+          onClick={() => setCurrentPage(currentPage + 1)}
+          disabled={currentPage === actorsDetails.total_pages}
+        >
+          Next Page
+        </button>
+      </div>
+    </div>
+  )
 }
-
-fetchAllActorsData();
