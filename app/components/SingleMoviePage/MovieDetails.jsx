@@ -121,7 +121,9 @@ export default function MovieDetails({ id }) {
                   "h-6 mt-2 ml-4  w-max flex text-md flex-row justify-around"
                 }
               >
-                {crew && crew.length > 0 ? director.name : ""}
+                {crew && crew.length > 0 && director
+                  ? director.name
+                  : "unknown"}
                 <Clapperboard size={20} className="text-primary ml-1" />
               </Badge>
             </div>
