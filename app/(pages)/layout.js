@@ -25,6 +25,7 @@ export default function RootLayout({ children }) {
           disableTransitionOnChange
         >
           <div className="pb-12"></div>
+          
           <NavBar />
           <MobileNav />
           {children}

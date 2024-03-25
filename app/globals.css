@@ -5,7 +5,7 @@
 
 @layer base {
   :root {
-    z-index: 50;
+    z-index: -1;
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;

@@ -16,7 +16,7 @@ import NavDropdown from "./NavDropdown";
 
 export default function NavBar() {
   return (
-    <nav className="z-50 fixed top-0 w-full bg-gradient-to-b from-primary-foreground to-transparent backdrop-blur-xl p-4 flex justify-between items-center md:hidden sm:hidden">
+    <nav className="z-10 fixed top-0 w-full bg-gradient-to-b from-primary-foreground to-transparent backdrop-blur-xl p-4 flex justify-between items-center md:hidden sm:hidden">
       <div className="flex items-center">
         <NavigationMenu>
           <NavigationMenuList>

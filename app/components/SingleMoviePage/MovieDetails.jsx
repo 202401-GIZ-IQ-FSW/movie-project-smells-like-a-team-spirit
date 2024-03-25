@@ -7,7 +7,6 @@ import Badge from "@/components/ui/badge";
 import { PlayIcon, VideoIcon } from "@radix-ui/react-icons";
 import CardActor from "../CardActor/CardActor";
 import CarouselPlugin from "./Carousel";
-import fetchTrailer from "./trailer";
 export default function MovieDetails({ id }) {
   const axios = require("axios");
   const [movieData, setMovieData] = useState([]);
@@ -16,7 +15,6 @@ export default function MovieDetails({ id }) {
   const [youtube, setYoutube] = useState([]);
   const [related, setRelated] = useState([]);
   useEffect(() => {
-    setYoutube(fetchTrailer(id));
     async function fetchMovieData() {
       const res = await axios.get(
         `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}`
@@ -27,6 +25,10 @@ export default function MovieDetails({ id }) {
       const res3 = await axios.get(
         `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.API_KEY}`
       );
+      const res4 = await axios.get(
+        `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.API_KEY}`
+      );
+      setYoutube(res4.data.results);
       setRelated(res3.data.results);
       setCrew(res2.data.cast);
       setMovieData(res.data);
@@ -35,7 +37,6 @@ export default function MovieDetails({ id }) {
     fetchMovieData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
-  console.log(youtube, "component");
   const director = crew
     .filter((actor) => actor.known_for_department === "Directing")
     .slice(0, 1)[0];
@@ -136,18 +137,22 @@ export default function MovieDetails({ id }) {
               Watch Now
               <PlayIcon className="w-5 h-5 ml-2" />
             </Button>
-            <Button
-              className="sm:ml-20 bg-primary text-secondary rounded-lg mt-4 ml-4 hover:text-secondary hover:bg-red-600 w-40"
-              onClick={() => {
-                window.open(`https://www.youtube.com/watch?v=${youtube[0].key}`);
-
-                console.log(youtube, "clicked");
-
-              }}
-            >
-              Watch Trailer
-              <VideoIcon className="w-6 h-6 ml-2" />
-            </Button>
+            {youtube && (
+              <Button
+                className="sm:ml-20 bg-primary text-secondary rounded-lg mt-4 ml-4 hover:text-secondary hover:bg-red-600 w-40"
+                onClick={async () => {
+                  const a = { ...youtube };
+                  try {
+                    window.open(`https://www.youtube.com/watch?v=${a[0].key}`);
+                  } catch (error) {
+                    console.error(error);
+                  }
+                }}
+              >
+                Watch Trailer
+                <VideoIcon className="w-6 h-6 ml-2" />
+              </Button>
+            )}
           </div>
         </div>
       </div>
