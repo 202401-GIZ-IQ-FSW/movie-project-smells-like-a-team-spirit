@@ -7,14 +7,16 @@ import Badge from "@/components/ui/badge";
 import { PlayIcon, VideoIcon } from "@radix-ui/react-icons";
 import CardActor from "../CardActor/CardActor";
 import CarouselPlugin from "./Carousel";
+import fetchTrailer from "./trailer";
 export default function MovieDetails({ id }) {
   const axios = require("axios");
   const [movieData, setMovieData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [crew, setCrew] = useState([]);
-  const [ytVideos, setYtVideos] = useState([]);
+  const [youtube, setYoutube] = useState([]);
   const [related, setRelated] = useState([]);
   useEffect(() => {
+    setYoutube(fetchTrailer(id));
     async function fetchMovieData() {
       const res = await axios.get(
         `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}`
@@ -25,11 +27,7 @@ export default function MovieDetails({ id }) {
       const res3 = await axios.get(
         `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.API_KEY}`
       );
-      const res4 = await axios.get(
-        `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.API_KEY}`
-      );
       setRelated(res3.data.results);
-      setYtVideos(res4.data.results);
       setCrew(res2.data.cast);
       setMovieData(res.data);
       setLoading(false);
@@ -37,6 +35,7 @@ export default function MovieDetails({ id }) {
     fetchMovieData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
+  console.log(youtube, "component");
   const director = crew
     .filter((actor) => actor.known_for_department === "Directing")
     .slice(0, 1)[0];
@@ -140,12 +139,10 @@ export default function MovieDetails({ id }) {
             <Button
               className="sm:ml-20 bg-primary text-secondary rounded-lg mt-4 ml-4 hover:text-secondary hover:bg-red-600 w-40"
               onClick={() => {
-                ytVideos
-                  ? window.open(
-                      `https://www.youtube.com/watch?v=${ytVideos[0].key}`,
-                      "_blank"
-                    )
-                  : console.log("No trailer available");
+                window.open(`https://www.youtube.com/watch?v=${youtube[0].key}`);
+
+                console.log(youtube, "clicked");
+
               }}
             >
               Watch Trailer
