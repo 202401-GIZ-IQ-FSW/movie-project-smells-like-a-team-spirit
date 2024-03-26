@@ -4,7 +4,7 @@
 
 ## Live Demo
 
-View the [live demo](https://movie-project-smells-like-a-team-spirit.vercel.app/top-charts)!
+View the [live demo](https://movie-project-smells-like-a-team-spirit.vercel.app/)!
 
 ## Site Map
 
