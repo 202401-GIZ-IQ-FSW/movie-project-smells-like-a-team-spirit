@@ -1,36 +1,37 @@
-"use client"
+"use client";
 
-import React, { useState, useEffect } from "react"
-import fetchData from "./fetchData"
-import Link from "next/link"
+import React, { useState, useEffect } from "react";
+import fetchData from "./fetchData";
+import Link from "next/link";
+import Image from "next/image";
 
-const API_KEY = process.env.API_KEY
+const API_KEY = process.env.API_KEY;
 
 export default function Actors() {
-  const [currentPage, setCurrentPage] = useState(1)
-  const [actorsDetails, setActorsDetails] = useState({ results: [] })
-  const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState(null)
+  const [currentPage, setCurrentPage] = useState(1);
+  const [actorsDetails, setActorsDetails] = useState({ results: [] });
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchActors = async () => {
-      setIsLoading(true)
-      setError(null)
+      setIsLoading(true);
+      setError(null);
 
       try {
         const data = await fetchData(
           `https://api.themoviedb.org/3/person/popular?api_key=${API_KEY}&page=${currentPage}`
-        )
-        setActorsDetails(data)
+        );
+        setActorsDetails(data);
       } catch (error) {
-        setError(error.message)
+        setError(error.message);
       } finally {
-        setIsLoading(false)
+        setIsLoading(false);
       }
-    }
+    };
 
-    fetchActors()
-  }, [currentPage])
+    fetchActors();
+  }, [currentPage]);
 
   return (
     <div className="container mx-auto px-4 py-16">
@@ -44,10 +45,12 @@ export default function Actors() {
               <Link href={`/actors/${actor.id}`} key={actor.id} passHref>
                 <div>
                   <h3 className="text-xl mb-1">{actor.name}</h3>
-                  <img
+                  <Image
                     className="rounded-md hover:"
                     src={`https://image.tmdb.org/t/p/w300${actor.profile_path}`}
                     alt={actor.name}
+                    width={200}
+                    height={300}
                   />
                 </div>
               </Link>
@@ -71,5 +74,5 @@ export default function Actors() {
         </button>
       </div>
     </div>
-  )
+  );
 }
