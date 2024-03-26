@@ -1,62 +1,78 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/CS2LelWo)
-# movie-project
+# Late Night Cinema web application
 
-# Movie Project
+"Late Night Cinema" is a dynamic web application designed for streaming movies and TV shows online. With a user-friendly interface and an extensive library of entertainment content, users can easily browse, search, and stream their favorite movies and TV series at their convenience. <br><br>
 
-## Overview
+## Live Demo
 
-Working with APIs to make our websites interactive sits at the core of frontend web development. At the end, frontend websites work as interfaces that give us the ability to interace with data. All this data is coming from some form of an API.
+View the [live demo](https://movie-project-smells-like-a-team-spirit.vercel.app/top-charts)!
 
-The API you will be interacting with is a movie API that can be used to retreive information about movies and actors. It is quite extensive and serves many purposes for your needs. In addition to that, it has quite a versatile searching mechanism that gives you the ability to reach for the information you need.
+## Site Map
 
-## How to make use of this WIKI?
+First you open our web application you will see a user-friendly Navbar, Home page, and Footer.
+In Navbar you can see:
 
-As you can see, the only thing you received from us is a bunch of `.md` (Markdown) files like the one you're reading now. We want you to learn to build your own projects from scratch and see how the process is done. So, we have created the following things in the wiki to help you out with the preparation:
+- sun icon to change the theme color from `Light` to `Dark` vice versa.
+- a `Sign in` button to sign in by providing username and password.
+- seven tabs (`Home`, `Movies`, `TV Shoes`, `Lists`, `Top charts`, `Popular`, `Actors`) each of them will navigate to the desired page.
 
-1. Setup - This page contains the steps you need to setup the project. **Only one of you will do it, while the others watch and support them**
-2. Requirements - This page contains the requirements that you need to do for the project.
-3. Presentation - This page contains the requirements that you need to do when presenting.
-4. Score guide - We're introducing a new score system. This page contains the breakdown of the score.
+![first page](<./screenshots/light theme home page.png>) <br><br>
 
-To make the best use of this Wiki, go first to the requirements, understand them, then go to the score guide, understand it, then finally head to the setup page so you can do the setup with everything in mind.
+![first page](<./screenshots/dark theme home page.png>) <br><br>
 
-## Key takeaways 🎉
+![first page](<./screenshots/sign in.png>) <br><br>
 
-If you finish this project you can be absolutely sure that you can work on any project in the future. Generally, you will be able to use the same tools and techniques you used here to build any website in the future.
+![first page](<./screenshots/sign up.png>) <br><br>
+---
+## How to use
 
-#### Things you will practice while working on this project
+##### For streaming Movies or TV Shows
 
-You will be able to practice:
+- first, click on the Movies tab in the nav bar, it opens a menu for you.
+- then, in the menu you can select the favorite movie category or TV show category.
+- by selecting the category you will see all the movies or TV shows for the related category.
+- after that, click on the name of the movie or tv show you want.
+- a page will be open where shows all the information regarding the selected move or selected tv show with two buttons( `Watch Now`, `Watch Trailer`)
+- finally, click on (`Watch Now`) to watch the movie online, and to see the trailer click on (`Watch Trailer`).
 
-- Dividing tasks as components between the team and avoiding most conflict issues.
-- Using states and setters to change the state of the component.
-- Using props to pass data from one component to another.
-- Using static-site generation and server-side rendering to fetch data and add them to pages.
-- Preparing folder structure in a way that makes your, and everyone elses work easier.
-- Adding new dependencies and how to use them.
-- Reading the documentation of the packages you use.
-- Reading the documentation of APIs and how to understand them.
-- Using Authentication tokens in your project.
-- Using routes to navigate between pages.
-- Using local storage to store information.
-- Using UI Kits to make styling components easier.
+##### To search for a Movie or TV Show
 
-#### Concerns to avoid
+- you can use Search Bar to search for movies or tv shows in the `Home` page.
+  OR
 
-The following thoughts are traps; steer away from them:
+##### To Sign In  / Sign Up
 
-- *`This project is huge! I don't think I'm going to be able to do it.`* From your previous experiences, you know for a fact that everything starts big in the beginning but when you plan things and work on them they usually are not as big and scary as you thought.
-- *`I don't know how to use [insert tool here] how am I going to deal with all of this?`* Again, don't worry. You have dealt with so many unknown things and just like you learned how to use them, you will be able to learn how to use any tool you want as long as you check its documentation.
-- *`[Right from the beginning] How am I going to fix the bonus topic?`* DON'T GO THERE UNLESS YOU FINISH THE MAIN REQUIREMENTS FIRST!
-- *`[After spending hours on an issue to fix it without reading the documentation or searching the issue on google] I will spend extra hours on this until I fix it`* This is a trap. You should always read the documentation and search for the solution.
-- *`I'm so tired now!!!😩 I've been trying to fix this bug for 3 hours!!!`* In times like these, consider steping away from your computer and doing something else like playing with your pet, watching something funny, looking outside your window and enjoying cool air.
+- Click on the `sign in` icon at the top right corner of the screen (next to the sun icon), it takes you to a new page where you can toggle between `sign in` box and `sign up` box.
 
-#### Confidence boosters
+- to sign in provide your user name or email in the `Username` input box and your password in the `Password` input box.
+- to sign up provide your `Name`, `Email`, `Password`, `Confirm Password` each in desired input box.
+- then, tick the checkbox `Agree to terms and conditions`, and click on the `Submit` button to sign in or to sign up.
+- 
 
-In times of doubts remember these:
+### Built With
 
-- *`This project will be a huge addition to my already big list of projects that will increase my future prospects of getting hired`*
-- *`The internet is FULL of resources that any one can use to learn about anything.`*
-- *`I've worked on 3 projects. They seemed difficult in the beginning but I still aced them. I'm awesome!`*
-- *`3 months ago, my biggest issues and worries are how to write the correct class name to change an HTML element's color. Now, I'm dealing with bigger things because I've learned so much more. My current worries and issues will be my HTML and CSS of my future.`*
-- *`I'm not alone on this team. There are more people who got my back.`*
+- [Next JS](https://nextjs.org/)- The React JS Framework for building user interfaces.
+- [TMDB API](https://www.themoviedb.org/)- It is a RESTful web service that provides access to a vast database of movie and TV show-related information
+
+### Dependencies
+
+- Node: [http://nodejs.org/](http://nodejs.org/)
+- NextJS: [https://nextjs.org/](https://nextjs.org/)
+- Radix-UI: [https://www.radix-ui.com/](https://www.radix-ui.com/)
+- Axios: [https://www.npmjs.com/package/axios](https://www.npmjs.com/package/axios)
+- TailwindCSS: [https://tailwindui.com/](https://tailwindui.com/)
+
+### Initial Set Up
+
+1. Clone the repository.
+2. `npm install`.
+3. `npm run dev`, app start with your port number.
+
+### Contributing
+
+1. Fork it (https://github.com/202401-GIZ-IQ-FSW/movie-project-smells-like-a-team-spirit/tree/main).
+2. Create your feature branch (`git checkout -b feature/fooBar`).
+3. Commit your changes (`git commit -am 'Add some fooBar'`).
+4. Push to the branch (`git push origin feature/fooBar`).
+5. Create a new Pull Request.
+
+---
