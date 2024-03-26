@@ -15,13 +15,13 @@ In Navbar you can see:
 - a `Sign in` button to sign in by providing username and password.
 - seven tabs (`Home`, `Movies`, `TV Shoes`, `Lists`, `Top charts`, `Popular`, `Actors`) each of them will navigate to the desired page.
 
-![first page](<./screenshots/light theme home page.png>) <br><br>
+![first page](<./light theme home page.png>) <br><br>
 
-![first page](<./screenshots/dark theme home page.png>) <br><br>
+![first page](<./dark theme home page.png>) <br><br>
 
-![first page](<./screenshots/sign in.png>) <br><br>
+![first page](<./sign in.png>) <br><br>
 
-![first page](<./screenshots/sign up.png>) <br><br>
+![first page](<./sign up.png>) <br><br>
 ---
 ## How to use
 
