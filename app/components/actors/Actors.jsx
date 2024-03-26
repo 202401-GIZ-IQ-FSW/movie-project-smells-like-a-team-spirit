@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import fetchData from "./fetchData";
 import Link from "next/link";
 import Image from "next/image";
+import ImageWithFallback from "../ImageWithFallback/IMAgeWithFallback";
 
 const API_KEY = process.env.API_KEY;
 
@@ -39,18 +40,19 @@ export default function Actors() {
       {isLoading && <p>Loading...</p>}
       {error && <p className="text-red-600">Error: {error}</p>}
       {!isLoading && !error && (
-        <div className="grid lg:grid-cols-4 gap-5 text-center p-5 sm:flex-col sm:flex">
+        <div className="grid lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 md:grid-cols-2 gap-5 text-center p-5 sm:flex-col sm:flex">
           {actorsDetails.results.map((actor) => (
             <div key={actor.id}>
               <Link href={`/actors/${actor.id}`} key={actor.id} passHref>
                 <div>
                   <h3 className="text-xl mb-1">{actor.name}</h3>
-                  <Image
+                  <ImageWithFallback
                     className="rounded-md hover:"
                     src={`https://image.tmdb.org/t/p/w300${actor.profile_path}`}
                     alt={actor.name}
                     width={200}
                     height={300}
+                    fallback={"not-found.jpg"}
                   />
                 </div>
               </Link>

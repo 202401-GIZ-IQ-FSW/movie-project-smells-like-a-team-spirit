@@ -6,6 +6,7 @@ import Image from "next/image"
 import Badge from "@/components/ui/badge"
 import { Star } from "lucide-react"
 import ActorMoviesCarousel from "@/app/components/actors/ActorMoviesCarousel"
+import ImageWithFallback from "@/app/components/ImageWithFallback/ImageWithFallback"
 
 const API_KEY = process.env.API_KEY
 
@@ -46,7 +47,7 @@ export default function Actor({ params }) {
   return (
     <div className="flex flex-col items-center justify-center mt-24 p-4">
       <div className=" bottom-7 xl:left-24 md:ml-4 sm:ml-4 flex flex-row sm:flex-col sm:items-center md:items-center md:flex-col ">
-        <Image
+        <ImageWithFallback
           src={`https://image.tmdb.org/t/p/original${actorData.profile_path}`}
           width={300}
           height={250}
