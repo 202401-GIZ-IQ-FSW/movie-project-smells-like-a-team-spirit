@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import fetchData from "./fetchData";
 import Link from "next/link";
 import Image from "next/image";
-import ImageWithFallback from "../ImageWithFallback/IMAgeWithFallback";
+import ImageWithFallback from "../ImageWithFallback/ImageWithFallback";
 
 const API_KEY = process.env.API_KEY;
 
