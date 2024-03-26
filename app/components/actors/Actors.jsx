@@ -39,7 +39,7 @@ export default function Actors() {
       {isLoading && <p>Loading...</p>}
       {error && <p className="text-red-600">Error: {error}</p>}
       {!isLoading && !error && (
-        <div className="grid grid-cols-4 gap-5 text-center p-5">
+        <div className="grid lg:grid-cols-4 gap-5 text-center p-5 sm:flex-col sm:flex">
           {actorsDetails.results.map((actor) => (
             <div key={actor.id}>
               <Link href={`/actors/${actor.id}`} key={actor.id} passHref>
