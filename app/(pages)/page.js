@@ -17,6 +17,7 @@ async function getMovies(search) {
   return data;
 }
 export default function Home() {
+  
   const [search, setSearch] = useState("");
   const [movie, setMovie] = useState([]);
   const [isFocused, setIsFocused] = useState(false);
@@ -44,6 +45,7 @@ export default function Home() {
               value={search}
               onFocus={() => setIsFocused(true)}
               onBlur={() => setIsFocused(false)}
+              
             />
             <Search className="absolute top-0 right-0 bottom-0 m-auto w-8 h-4" />
           </div>

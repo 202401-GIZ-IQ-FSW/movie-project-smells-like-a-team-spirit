@@ -2,9 +2,9 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-export default function CardActor({ endpoint, name, popilarity }) {
+export default function CardActor({ endpoint, name, popilarity,id }) {
   return (
-    <Link href={""}>
+    <Link href={`/actors/${id}`}>
       <Card className="h-[230px] w-[140px]">
         <CardContent className="mt-4">
           <Image

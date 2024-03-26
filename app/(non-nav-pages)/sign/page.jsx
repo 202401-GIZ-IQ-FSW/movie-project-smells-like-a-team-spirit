@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Checkbox } from "@/components/ui/checkbox";
+import Link from "next/link";
 
 export default function Sign() {
   return (
@@ -52,7 +53,9 @@ export default function Sign() {
                   Remember me
                 </Label>
               </div>
+              <Link href={"/"}>
               <Button>SUBMIT</Button>
+              </Link>
             </CardFooter>
           </Card>
         </TabsContent>
@@ -98,7 +101,9 @@ export default function Sign() {
                   Agree to terms and conditions
                 </Label>
               </div>
+              <Link href={"/"}>
               <Button>SIGN-UP</Button>
+              </Link>
             </CardFooter>
           </Card>
         </TabsContent>

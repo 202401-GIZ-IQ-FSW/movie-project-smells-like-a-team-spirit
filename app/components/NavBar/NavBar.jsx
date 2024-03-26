@@ -26,7 +26,7 @@ export default function NavBar() {
               <div className="px-5">
                 <Link href="/">
                   <div>
-                    <Logo className="w-10 h-16" />
+                    <Logo className="w-10 h-16 " />
                   </div>
                 </Link>
               </div>

@@ -61,7 +61,7 @@ export default function MovieDetails({ id }) {
           />
         </div>
       </div>
-      <div className="absolute bottom-7 xl:left-24 md:ml-4 sm:ml-4 flex flex-row sm:flex-col md:flex-col ">
+      <div className="absolute lg:ml-12 sm:relative sm:left-0 sm:right-0 sm:top-0 sm:m-auto sm:flex  bottom-7 xl:left-24 md:ml-4 sm:ml-4 flex flex-row sm:flex-col md:flex-col ">
         <Image
           src={`https://image.tmdb.org/t/p/original/${movieData.poster_path}`}
           width={200}
@@ -85,7 +85,7 @@ export default function MovieDetails({ id }) {
                 ` Hr ` +
                 ((movieData.runtime % 60) + ` Min`)}
             </p>
-            <div className="flex-row flex">
+            <div className="flex-row flex sm:flex-wrap">
               <Badge
                 variant="secondary"
                 className={
@@ -158,16 +158,19 @@ export default function MovieDetails({ id }) {
           </div>
         </div>
       </div>
-      <div className="flex pt-72"></div>
+      <div className="flex pt-96 sm:pt-4"></div>
       {/* add components here */}
-      <h1 className="text-2xl text-primary font-bold mb-4">TOP ACTORS</h1>
-      <div className="flex flex-row flex-wrap gap-4 pl-4 ">
+      <h1 className="text-2xl text-primary text-center font-bold mb-4 md:p">
+        TOP ACTORS
+      </h1>
+      <div className="flex flex-row flex-wrap gap-4 pl-4  ">
         {sortedCast.map((actor) => (
           <CardActor
             endpoint={actor.profile_path}
             name={actor.name}
             popilarity={actor.popularity.toFixed(1)}
             key={actor.id}
+            id={actor.id}
           />
         ))}
       </div>

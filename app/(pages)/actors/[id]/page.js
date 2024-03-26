@@ -72,7 +72,7 @@ export default function Actor({ params }) {
       </div>
       <div className="col-span-3 text ">
         <h2 className="text-xl text-center font-bold mb-6">
-          Some of {actorData.name}'s work{" "}
+          Some of {actorData.name}&apos;s work{" "}
         </h2>
         <ul className="flex flex-wrap">
           {movies.map((movie) => (
