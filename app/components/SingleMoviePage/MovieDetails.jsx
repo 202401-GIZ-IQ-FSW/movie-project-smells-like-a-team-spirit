@@ -70,8 +70,8 @@ export default function MovieDetails({ id }) {
           className="rounded-lg "
         />
         <div className="flex flex-col">
-          <div className="flex flex-row items-center ">
-            <h1 className="text-4xl underline decoration-yellow-400 sm:ml-2 font-bold md:pl-4 pt-10 text-primary xl:ml-4">
+          <div className="flex flex-row items-center bg-gray-600 bg-opacity-50 backdrop-blur rounded-lg">
+            <h1 className="text-4xl underline decoration-yellow-400 font-bold text-secondary xl:ml-4 z-10 sm:text-5xl lg:text-6xl">
               {movieData.title}
             </h1>
           </div>
