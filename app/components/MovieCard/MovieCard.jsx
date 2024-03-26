@@ -18,6 +18,7 @@ export default function MovieCard({
   rating,
   votes,
   type,
+  id,
 }) {
   return (
     <div className="w-72 place-items-center p-4 h-full">
@@ -28,8 +29,9 @@ export default function MovieCard({
               <Image
                 src={image_url}
                 alt={title}
-                width={400}
-                height={600}
+                width={320}
+                height={480}
+                objectFit="cover"
                 className="w-80"
               />
             </CardHeader>
@@ -39,15 +41,15 @@ export default function MovieCard({
               <div className="flex flex-row justify-between ">
                 <CardTitle>
                   <Link
-                    href={""}
+                    href={`/movie/${id}`}
                     className="underline underline-offset-8 leading-relaxed"
                   >
                     {title.length <= 16 ? title : `${title.slice(0, 16)}...`}
                   </Link>
                 </CardTitle>
-                <Badge variant="secondary" className="h-6">
+                {/* <Badge variant="secondary" className="h-6">
                   {type}
-                </Badge>
+                </Badge> */}
               </div>
             </CardContent>
             <CardFooter>

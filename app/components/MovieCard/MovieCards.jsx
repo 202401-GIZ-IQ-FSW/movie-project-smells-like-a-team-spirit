@@ -35,8 +35,9 @@ export default function MovieCards({ endpoint, paramExist }) {
           {data.results.map((movie) => (
             <MovieCard
               key={movie.id}
+              id={movie.id}
               type={movie.media_type ? movie.media_type.toUpperCase() : "N/A"}
-              image_url={`https://image.tmdb.org/t/p/w400${movie.poster_path}`}
+              image_url={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
               title={movie.title || movie.name}
               description={movie.overview}
               rating={movie.vote_average}

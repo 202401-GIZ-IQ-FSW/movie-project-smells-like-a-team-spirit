@@ -21,9 +21,9 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
-          <div className="pb-12"></div>
+          <div className="pb-24"></div>
           {children}
-          <div className="pt-36"></div>
+          <div className="pt-96"></div>
           <Footer />
         </ThemeProvider>
       </body>
