@@ -60,6 +60,7 @@ In Navbar you can see:
 - Radix-UI: [https://www.radix-ui.com/](https://www.radix-ui.com/)
 - Axios: [https://www.npmjs.com/package/axios](https://www.npmjs.com/package/axios)
 - TailwindCSS: [https://tailwindui.com/](https://tailwindui.com/)
+- Shadcn: [https://ui.shadcn.com/](https://ui.shadcn.com/)
 
 ### Initial Set Up
 
